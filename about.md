@@ -22,7 +22,7 @@ movies, screenwriting, working out, fighting games,
 system emulations and occasionally an entire pepperoni pizza 🥸 
 </p>
 
-<h2>Skills</h2>
+<h2>Tools & Skills</h2>
 
 <ul class="skill-list">
 	<li>Java - Spring Boot</li>
