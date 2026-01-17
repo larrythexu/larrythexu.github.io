@@ -39,6 +39,7 @@ knew of AWS Cloud, but I never actually hosted or set something up
 there, so this was a perfect chance.
 
 **Local Setup**
+
 Using Flask and SocketIO, I set up the server to hold an 
 uint8 array with 10000 indexes. I wanted it to hold 3 values
 (that being RGB) instead of the binary 2, which is seen in 
@@ -66,6 +67,7 @@ which should be better suited for prod-level traffic (even though
 I probably wouldn't run into it). 
 
 **Upgrading to REAL Server**
+
 I installed Gunicorn, setup a wsgi.py page (finally got me 
 to understand what a WSGI was and the purpose of those files).
 Lastly, I created the dockerfile and pushed the image up to
