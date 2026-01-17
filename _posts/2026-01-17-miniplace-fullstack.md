@@ -66,10 +66,10 @@ for local builds and testing. To upgrade, we need to use Gunicorn,
 which should be better suited for prod-level traffic (even though
 I probably wouldn't run into it). 
 
-**Upgrading to REAL Server**
+**Upgrading to a REAL Server**
 
 I installed Gunicorn, setup a wsgi.py page (finally got me 
-to understand what a WSGI was and the purpose of those files).
+to understand what a "WSGI" even was and the purpose of those files).
 Lastly, I created the dockerfile and pushed the image up to
 my Dockerhub repo.
 
@@ -79,7 +79,7 @@ EC2 instance (my AWS knowledge was pretty limited to EC2 being for
 that). I figured I could also just host the frontend in Github
 Pages. The intent was to have a clear separation between the 
 frontend and backend. Only later would I find out this to be a 
-mistake.
+mistake (*ominous foreshadowing*).
 
 So I went about learning and setting things up in AWS. I 
 created an account there and started an EC2 instance - using an 
@@ -99,15 +99,24 @@ but any calls to the /api gave me a 404 Error.
 
 I was confused, because performing curl to 127.0.0.1:8000/api
 worked as expected, so something was definitely not working on 
-the nginx side. Took me a while, but I realized it really 
+the nginx side. Even running `sudo nginx -T | grep <my endpoint>`
+was showing as expected!
+
+Took me a while, but I realized it really 
 came down to just deleting the default config file...
-I guess that step wasn't really that obvious to me.
+Turns out because the `server_name` was clashing, 
+it prioritized the default config. Since I wasn't 
+setting up HTTPS, I left that field as: `server_name: _;`, 
+which coincidentally clashed with what the default config had.
+That issue wasn't really that obvious to me, but glad it 
+was resolved.
 
 Deleting it caused nginx to use the actual config file I 
 had created. And testing the public IP yielded what I wanted!
 My backend server was finally working as expected!
 
-**Connecting the frontend**
+**Connecting the Frontend**
+
 As according to my original plan, I wanted Github pages to host
 my frontend. My EC2 instance was setup to only allow SSH and 
 HTTP inbound (I didn't want to bother setting up HTTPS right 
@@ -121,7 +130,8 @@ Only to see this:
 
 So Github Pages forces HTTPS and WSS. I should've known.
 
-**Moving the frontend**
+**Moving the Frontend**
+
 After all this work, I decided I might as well just put the 
 frontend into my EC2 instance and have nginx serve it.
 It would simplify things. 
