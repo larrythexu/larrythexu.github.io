@@ -99,14 +99,20 @@ but any calls to the /api gave me a 404 Error.
 
 I was confused, because performing curl to 127.0.0.1:8000/api
 worked as expected, so something was definitely not working on 
-the nginx side. Even running `sudo nginx -T | grep <my endpoint>`
-was showing as expected!
+the nginx side. Even running 
+{% highlight bash %}
+sudo nginx -T | grep <my endpoint>
+{% endhighlight %}
+was showing the correct configurations as expected!
 
 Took me a while, but I realized it really 
 came down to just deleting the default config file...
-Turns out because the `server_name` was clashing, 
+Turns out because the *server_name* was clashing, 
 it prioritized the default config. Since I wasn't 
-setting up HTTPS, I left that field as: `server_name: _;`, 
+setting up HTTPS, I left that field as: 
+{% highlight bash %}
+`server_name: _;`, 
+{% endhighlight %}
 which coincidentally clashed with what the default config had.
 That issue wasn't really that obvious to me, but glad it 
 was resolved.
