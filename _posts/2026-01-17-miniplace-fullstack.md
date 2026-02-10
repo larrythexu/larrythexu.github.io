@@ -148,3 +148,56 @@ fortunately, it was up and running!
 Absolutely a rewarding experience to see working. There's
 also so much to learn about nginx. So I'll be making sure 
 to do more reaserch on that.
+
+**Nginx Config**
+
+This was what the Nginx reverse proxy config ended up looking like:
+
+{% highlight bash %}
+    server {
+        listen 80;
+        server_name _;  # use EC2 IP for now
+        
+        root /var/www/frontend;
+        index index.html;
+
+        # Frontend
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+
+        # REST API: /api/*
+        location /api/ {
+            proxy_pass http://127.0.0.1:8000;  # Gunicorn inside Docker
+            proxy_http_version 1.1;
+
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            proxy_buffering off;
+        }
+
+        location /testapi/ {
+        return 200 "Nginx routing works\n";
+        }
+
+        # SocketIO WebSockets: /socket.io/
+        location /socket.io/ {
+            proxy_pass http://127.0.0.1:8000;  # Gunicorn inside Docker
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            proxy_buffering off;
+        }
+    }
+{% endhighlight %}
+
+I'm sure there's stuff in here that could use 
+tweaking to be the *industry standard*, but hey 
+at least it works!
