@@ -33,8 +33,12 @@ system emulations and occasionally an entire pepperoni pizza 🥸
 	<li>PostgreSQL - MongoDB</li>
 	<li>Python</li>
 	<li>C - C++</li>
-	<li>JavaScript - HTML - CSS</li>
+	<li>JavaScript</li>
+	<li>Typescript</li>
+	<li>HTML - CSS</li>
 	<li>Node.js</li>
+	<li>Flask</li>
+	<li>React</li>
 	<li>Svelte</li>
 	<li>Jira - Confluence</li>
 	<li>Slack</li>
@@ -44,8 +48,11 @@ system emulations and occasionally an entire pepperoni pizza 🥸
 <h2>Projects</h2>
 
 <ul>
-	<li><a href="https://github.com/larrythexu/ReliableWebDemo">Reliable Web Service w/ K8s</a></li>
 	<li><a href="https://github.com/larrythexu/SpringElevator">Spring Elevator Emulator</a></li>
+	<li><a href="https://github.com/larrythexu/miniplace">MiniPlace Website</a></li>
+	<li><a href="https://github.com/larrythexu/mangatagger">MangaTagger</a></li>
+	<li><a href="https://github.com/larrythexu/larrypi">Raspberry Pi Home Server</a></li>
+	<li><a href="https://github.com/larrythexu/ReliableWebDemo">Reliable Web Service w/ K8s</a></li>
 	<li><a href="https://github.com/larrythexu/JPADemo">JPA Postgres</a></li>
 	<li><a href="https://github.com/larrythexu/shieldman">Shieldman Game</a></li>
 </ul>
