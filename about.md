@@ -6,8 +6,8 @@ layout: page
 
 <p>
 Heya! I'm Lawrence Xu, a software engineer. I specialize in Back End 
-Development and DevOps. I am currently based in the Netherlands, 
-but have previously studied and worked in the United States. I have great 
+Development and DevOps. I am currently based in the Netherlands working as an SWE for Albert Heijn! 
+I have also previously studied and worked in the United States. I have great 
 experience in Java development with Spring Boot and containzeration 
 tools like Docker and Kubernetes, as well as configuring CI/CD workflows
 with both Github Actions & Gitlab CI/CD. I continue to learn and explore 
