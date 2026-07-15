@@ -22,7 +22,9 @@ Tools and Skills:
 
 [Github Link](https://github.com/larrythexu/miniplace)
 
-[MiniPlace](http://ec2-13-39-19-104.eu-west-3.compute.amazonaws.com) (I'm not sure how long I'll be keeping it up)
+~~[MiniPlace](http://ec2-13-39-19-104.eu-west-3.compute.amazonaws.com)~~ 
+
+**As of 2026-01-17, the server has been shut down!**
 
 
 ---
